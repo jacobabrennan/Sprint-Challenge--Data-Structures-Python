@@ -1,3 +1,4 @@
+from queue import Queue
 
 
 class BinarySearchTree:
@@ -17,7 +18,25 @@ class BinarySearchTree:
             self.right.depth_first_for_each(cb)
 
     def breadth_first_for_each(self, cb):
-        pass
+        # Go through each level of the tree, on the current level
+        # invoke the callback function with the value of each node, and
+        # add the node's children to a Queue of open nodes.
+        # Once the current depth is complete, the Queue will hold the nodes
+        # from the next level. Repeat the process with those.
+
+        # Define the open nodes queue
+        open_nodes = Queue()
+        open_nodes.enqueue(self)
+        # Iterate over each node
+        while open_nodes.len(): 
+            # Invoke the callback for the current value
+            current_node = open_nodes.dequeue()
+            cb(current_node.value)
+            # Queue-up the child nodes for the next depth level
+            if current_node.left:
+                open_nodes.enqueue(current_node.left)
+            if current_node.right:
+                open_nodes.enqueue(current_node.right)
 
     def insert(self, value):
         new_tree = BinarySearchTree(value)

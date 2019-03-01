@@ -14,8 +14,14 @@ used. The function simply calls itself recursively.
 
 3. What is the runtime complexity of your `breadth_first_for_each` method?
 
+Like the depth_first_for_each method above, each node in the tree is iterated
+over once, for a runtime complexity of O(n).
+
 4. What is the space complexity of your `breadth_first_for_each` method?
 
+The maximum number of items contained in the Queue is, in the worst case, the
+number of items in a full final depth, which is a ((n/2)+1). This means the
+space complexity is linear, or O(n).
 
 5. What is the runtime complexity of the provided code in `names.py`?
 
