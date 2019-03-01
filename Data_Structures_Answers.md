@@ -39,6 +39,10 @@ duplicate names.
 The runtime complexity is O(n), where n is the total number of names. There
 are no nested loops or recursion.
 
+Edit: This fails to account for the complexity of the sort opperations, which
+are O(n log(n)). This means the whole algorithm has a complexity of
+O(n log(n)).
+
 8. What is the space complexity of your optimized code in `names.py`?
 
 The space complexity is also O(n), as all that needs to be stored are the two
